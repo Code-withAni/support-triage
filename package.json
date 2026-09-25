@@ -5,10 +5,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
-    "start": "NODE_ENV=production node dist/index.js",
+    "build": "vite build",
+    "start": "vite preview --host 0.0.0.0",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
+    "test": "DATABASE_URL=sqlite:///./tests/test_support_tickets.db PYTHONPATH=backend .venv/bin/python -m pytest tests -q",
     "format": "prettier --write ."
   },
   "dependencies": {
